@@ -1,0 +1,3 @@
+class StafMember < ApplicationRecord
+
+end
