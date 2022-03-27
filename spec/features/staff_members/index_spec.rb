@@ -13,7 +13,7 @@ RSpec.describe 'Staff Member Controlled Features' do
     @support_staff_2 = @school_1.staff_members.create!(name:"Dvorak, Miriam", role:"Cook", department: "Kitchen", courses: "[]", pay_rate:75000, pay_type:"salary", qualified_instructor:true)
     @teaching_staff_3 = @school_2.staff_members.create!(name:"Weisenstien, Geoffry", role:"Teacher", department: "Writing", courses: [], pay_rate:35000, pay_type:"salary", qualified_instructor:true)
     @teaching_staff_4 = @school_2.staff_members.create!(name:"Cliffords, Kelly", role:"Teacher", department: "Reading", courses: [], pay_rate:36000, pay_type:"salary", qualified_instructor:true)
-    @teaching_staff_3 = @school_2.staff_members.create!(name:"Burgouise, Francis", role:"Teacher", department: "Electives", courses: [], pay_rate:35000, pay_type:"salary", qualified_instructor:true)
+    @teaching_staff_5 = @school_2.staff_members.create!(name:"Burgouise, Francis", role:"Teacher", department: "Electives", courses: [], pay_rate:35000, pay_type:"salary", qualified_instructor:true)
     @admin_staff_3 =  @school_2.staff_members.create!(name:"Maxwell, Francine", role:"Counselor", department: "Student Support", courses: [], pay_rate:39000, pay_type:"salary", qualified_instructor:true)
     @admin_staff_4 =  @school_2.staff_members.create!(name:"Richards, Whitny", role:"Counselor", department: "Student Support", courses: [], pay_rate:42000, pay_type:"salary", qualified_instructor:true)
   end
@@ -25,7 +25,7 @@ RSpec.describe 'Staff Member Controlled Features' do
       expect(page).to have_content(@admin_staff_4.name)
       expect(page).to have_content(@admin_staff_2.role)
       expect(page).to have_content(@teaching_staff_1.name)
-      expect(page).to have_content(@teaching_staff4.department)
+      expect(page).to have_content(@teaching_staff_4.department)
       expect(page).to have_content(@support_staff_2.pay_rate)
       expect(page).to have_content(@support_staff_1.name)
       expect(page).to have_content(@admin_staff_1.pay_type)
@@ -34,20 +34,19 @@ RSpec.describe 'Staff Member Controlled Features' do
 
   context '/staff_members/:id' do
     it "Shows a single staff member's atributes" do
-      # binding.pry
-      visit"staff_members/#{@admin_staff_3.id}"
+      visit "/staff_members/#{@admin_staff_3.id}"
 
       expect(page).to have_content('39000')
 
-      visit "staff_members/#{@admin_staff_1.id}"
+      visit "/staff_members/#{@admin_staff_1.id}"
 
       expect(page).to have_content('75000')
 
-      visit"staff_members/#{@teaching_staff_3.id}"
+      visit"/staff_members/#{@teaching_staff_3.id}"
 
       expect(page).to have_content('Writing')
 
-      visit"staff_members/#{@support_staff_1.id}"
+      visit"/staff_members/#{@support_staff_1.id}"
 
       expect(page).to have_content('Adams, Douglas')
     end
