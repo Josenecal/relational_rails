@@ -1,0 +1,29 @@
+<h2><%= @school.name %></h2>
+<table>
+  <tr>
+    <th>School ID</th>
+    <th>School</th>
+    <th>Address</th>
+    <th>public/private</th>
+    <th>State Score</th>
+    <th>Grades Served</th>
+    <th>Student Capacity</th>
+    <th>Accepting New Students?</th>
+    <th>Calendar Structure</th>
+    <th>Date Added</th>
+    <th>Last Updated</th>
+  </tr>
+  <tr>
+    <td><%= @school.id %></td>
+    <td><%= @school.name %></td>
+    <td><%= @school.mailing_address %></td>
+    <td><%= @school.is_public %></td>
+    <td><%= @school.state_rating %></td>
+    <td><%= @school.grades_served %></td>
+    <td><%= @school.max_student_capacity %></td>
+    <td><%= @school.accepting_new_students %></td>
+    <td><%= @school.calendar_structure %></td>
+    <td><%= @school.created_at %></td>
+    <td><%= @school.updated_at %></td>
+  </tr>
+</table>
