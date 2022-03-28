@@ -1,3 +1,4 @@
+<p>Go To: <a href='/schools/'>Schools Index</a>  |  <a href='/staff_members/'>Staff Members Index</a> </p>
 <h2>Schools Index</h2>
 <table>
   <tr>
@@ -9,9 +10,10 @@
     <th>Grades Served</th>
     <th>Student Capacity</th>
     <th>Accepting New Students?</th>
-    <th>Calendar Structure
+    <th>Calendar Structure</th>
     <th>Date Added</th>
     <th>Last Updated</th>
+    <th>Link</th>
   </tr>
   <% @schools.each do |school|%>
     <tr>
@@ -26,5 +28,6 @@
       <td><%= school.calendar_structure %></td>
       <td><%= school.created_at %></td>
       <td><%= school.updated_at %></td>
+      <td><a href="/schools/<%= school.id %>/" >Info</a></td>
     </tr>
   <% end %>

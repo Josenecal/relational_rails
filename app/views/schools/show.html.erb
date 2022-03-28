@@ -1,5 +1,19 @@
+<p>Go To: <a href='/schools/'>Schools Index</a>  |  <a href='/staff_members/'>Staff Members Index</a>  |  <a href='/schools/<%= @school.id %>/staff_members/'><%= @school.name %>'s Staff Members'</a></p>
 <h2><%= @school.name %></h2>
-<table>
+<ul>
+  <li>ID: <%= @school.id %></li>
+  <li>Address: <%= @school.mailing_address %></li>
+  <li>Total Staff: <%= @staff_count %></li>
+  <li>Public / Private: <%= @school.is_public %></li>
+  <li>State Score: <%= @school.state_rating %></li>
+  <li>grades served: <%= @school.grades_served %></li>
+  <li>Student Capacity: <%= @school.max_student_capacity %></li>
+  <li>Accepting New Enrollments: <%= @school.accepting_new_students %></li>
+  <li>Calendar Structure: <%= @school.calendar_structure %></li>
+  <li>Date Added: <%= @school.created_at %></li>
+  <li>Date Updated: <%= @school.updated_at %></li>
+</ul>
+<!-- <table>
   <tr>
     <th>School ID</th>
     <th>School</th>
@@ -26,4 +40,4 @@
     <td><%= @school.created_at %></td>
     <td><%= @school.updated_at %></td>
   </tr>
-</table>
+</table> -->

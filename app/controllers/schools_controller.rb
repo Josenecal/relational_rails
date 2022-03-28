@@ -6,6 +6,8 @@ class SchoolsController < ApplicationController
 
   def show
     @school = School.find(params[:id])
+    # binding.pry
+    @staff_count = School.find(params[:id]).staff_members.length
   end
 
 end
