@@ -32,10 +32,21 @@ RSpec.describe 'staff_members#show' do
   end
 
   it 'shows a count of all staff members belonging to this school' do
-    visit "/schools/#{@school_1.id}"
+  visit "/schools/#{@school_1.id}"
 
     expect(page).to have_content("Total Staff: 6")
   end
 
-  
+  it 'has links to schools index and staff members index pages' do
+    visit "/staff_members/#{@admin_staff_2.id}/"
+
+    expect(page).to have_link(href: "/schools/")
+    expect(page).to have_link(href: "/staff_members/")
+  end
+
+  it "has a link to this school's staff members" do
+    visit "/schools/#{@school_1.id}"
+    # binding.pry 
+    expect(page).to have_link(href: "/schools/#{@school_1.id}/staff_members/")
+  end
 end

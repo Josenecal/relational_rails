@@ -35,4 +35,10 @@ RSpec.describe "staff_members#show" do
     expect(page).to have_content('Adams, Douglas')
   end
 
+  it 'has links to schools index and staff members index pages' do
+    visit "/staff_members/#{@admin_staff_4.id}/"
+
+    expect(page).to have_link(href: "/schools/")
+    expect(page).to have_link(href: "/staff_members/")
+  end
 end

@@ -19,22 +19,27 @@ RSpec.describe "school staff member controller" do
     @admin_staff_4 =  @school_2.staff_members.create!(name:"Richards, Whitny", role:"Counselor", department: "Student Support", courses: [], pay_rate:42000, pay_type:"salary", qualified_instructor:true)
   end
 
-  context '/schools/:id/staff_members' do
-    it "shows an index of a school's staff members" do
-      visit "/schools/#{@school_1.id}/staff_members"
+  it "shows an index of a school's staff members" do
+    visit "/schools/#{@school_1.id}/staff_members"
 
-      expect(page).to have_content(@support_staff_2.name)
-      expect(page).to have_content(@support_staff_1.department)
-      expect(page).to have_content(@admin_staff_2.role)
-      expect(page).to have_content(@admin_staff_1.pay_type)
-      expect(page).to have_content(@teaching_staff_2.name)
-      expect(page).to have_content(@teaching_staff_1.pay_rate)
-      expect(page).not_to have_content(@teaching_staff_3.name)
+    expect(page).to have_content(@support_staff_2.name)
+    expect(page).to have_content(@support_staff_1.department)
+    expect(page).to have_content(@admin_staff_2.role)
+    expect(page).to have_content(@admin_staff_1.pay_type)
+    expect(page).to have_content(@teaching_staff_2.name)
+    expect(page).to have_content(@teaching_staff_1.pay_rate)
+    expect(page).not_to have_content(@teaching_staff_3.name)
 
-      visit "/schools/#{@school_2.id}/staff_members"
+    visit "/schools/#{@school_2.id}/staff_members"
 
-      expect(page).to have_content(@teaching_staff_3.name)
-      expect(page).not_to have_content(@admin_staff_1.name)
-    end
+    expect(page).to have_content(@teaching_staff_3.name)
+    expect(page).not_to have_content(@admin_staff_1.name)
+  end
+
+  it 'has links to schools index and staff members index pages' do
+    visit "/staff_members/#{@admin_staff_4.id}/"
+
+    expect(page).to have_link(href: "/schools/")
+    expect(page).to have_link(href:"/staff_members/")
   end
 end

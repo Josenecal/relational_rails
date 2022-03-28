@@ -26,9 +26,13 @@ RSpec.describe "staff_members#index" do
   end
 
   xit 'shows schools in order that they were created' do
-    # Oh God no how do you even test for this!?!
-    # Stack Overflow suggests regex can solve this but we'll be testing
-    # with literals that won't update with variables. hmmm.....
-    # Workshop this!
+    
+  end
+
+  it 'has links to schools index and staff members index pages' do
+    visit "/staff_members/#{@admin_staff_2.id}/"
+
+    expect(page).to have_link(href: "/schools/")
+    expect(page).to have_link(href: "/staff_members/")
   end
 end

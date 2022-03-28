@@ -18,17 +18,22 @@ RSpec.describe 'Staff Member Controlled Features' do
     @admin_staff_4 =  @school_2.staff_members.create!(name:"Richards, Whitny", role:"Counselor", department: "Student Support", courses: [], pay_rate:42000, pay_type:"salary", qualified_instructor:true)
   end
 
-  context '/staff_members' do
-    it 'Shows all of the staff members in the system and their attributes' do
-      visit'/staff_members'
+  it 'Shows all of the staff members in the system and their attributes' do
+    visit'/staff_members'
 
-      expect(page).to have_content(@admin_staff_4.name)
-      expect(page).to have_content(@admin_staff_2.role)
-      expect(page).to have_content(@teaching_staff_1.name)
-      expect(page).to have_content(@teaching_staff_4.department)
-      expect(page).to have_content(@support_staff_2.pay_rate)
-      expect(page).to have_content(@support_staff_1.name)
-      expect(page).to have_content(@admin_staff_1.pay_type)
-    end
+    expect(page).to have_content(@admin_staff_4.name)
+    expect(page).to have_content(@admin_staff_2.role)
+    expect(page).to have_content(@teaching_staff_1.name)
+    expect(page).to have_content(@teaching_staff_4.department)
+    expect(page).to have_content(@support_staff_2.pay_rate)
+    expect(page).to have_content(@support_staff_1.name)
+    expect(page).to have_content(@admin_staff_1.pay_type)
+  end
+
+  it 'has links to schools index and staff members index pages' do
+    visit "/staff_members/#{@admin_staff_4.id}/"
+
+    expect(page).to have_link(href: "/schools/")
+    expect(page).to have_link(href: "/staff_members/")
   end
 end
