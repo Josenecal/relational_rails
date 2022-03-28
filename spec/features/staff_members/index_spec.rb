@@ -31,25 +31,4 @@ RSpec.describe 'Staff Member Controlled Features' do
       expect(page).to have_content(@admin_staff_1.pay_type)
     end
   end
-
-  context '/staff_members/:id' do
-    it "Shows a single staff member's atributes" do
-      visit "/staff_members/#{@admin_staff_3.id}"
-
-      expect(page).to have_content('39000')
-
-      visit "/staff_members/#{@admin_staff_1.id}"
-
-      expect(page).to have_content('75000')
-
-      visit"/staff_members/#{@teaching_staff_3.id}"
-
-      expect(page).to have_content('Writing')
-
-      visit"/staff_members/#{@support_staff_1.id}"
-
-      expect(page).to have_content('Adams, Douglas')
-    end
-
-  end
 end
