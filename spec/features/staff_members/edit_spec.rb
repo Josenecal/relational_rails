@@ -12,14 +12,14 @@ RSpec.describe 'school staff members # edit' do
         visit "/staff_members/#{@teaching_staff_1.id}/"
         click_link "Update Staff Member"
 
-        expect(current_path).to eq("/staff_member/#{@teaching_staff_1.id}/edit/")
+        expect(current_path).to eq("/staff_members/#{@teaching_staff_1.id}/edit/")
 
         fill_in :name, with: "Thompson, Guy"
         fill_in :department, with: "German Language"
         check :qualified_instructor
         click_on "Update Staff Member"
 
-        expect(current_path).to eq("/staff_member/#{@teaching_staff_1.id}/")
+        expect(current_path).to eq("/staff_members/#{@teaching_staff_1.id}/")
         expect(page).to have_content("Thompson, Guy") # Updated
         expect(page).to have_content("German Language") # Updated
         expect(page).to have_content("45000") # Not updated
