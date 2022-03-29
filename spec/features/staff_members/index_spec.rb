@@ -19,9 +19,8 @@ RSpec.describe 'Staff Member Controlled Features' do
   end
 
   it 'Shows all of the staff members in the system and their attributes' do
-    visit'/staff_members'
+    visit'/staff_members/'
 
-    expect(page).to have_content(@admin_staff_4.name)
     expect(page).to have_content(@admin_staff_2.role)
     expect(page).to have_content(@teaching_staff_1.name)
     expect(page).to have_content(@support_staff_2.pay_rate)
@@ -40,5 +39,15 @@ RSpec.describe 'Staff Member Controlled Features' do
     visit "/staff_members/"
     expect(page).to have_content(@admin_staff_1.name)
     expect(page).to_not have_content(@teaching_staff_4.name)
+  end
+
+  it "has a link to each staff_member's edit page next to their info" do
+    visit "/staff_members/"
+    within("#table_row_0") do
+      expect(page).to have_link(href: "/staff_members/#{@teaching_staff_1.id}/edit/")
+    end
+    within("#table_row_1") do
+      expect(page).to have_link(href: "/staff_members/#{@teaching_staff_2.id}/edit/")
+    end
   end
 end

@@ -15,9 +15,11 @@
     <th>Date Added</th>
     <th>Last Updated</th>
     <th>Active Employee</th>
+    <th>Edit</th>
   </tr>
   <% @school_staff_members.each_with_index do |staff_member, index|%>
     <tr>
+        <div id="table_row_<%= index %>">
         <td><%= staff_member.id %></td>
         <td><%= staff_member.name %></td>
         <td><%= staff_member.school_id %></td>
@@ -30,6 +32,8 @@
         <td><%= staff_member.created_at %></td>
         <td><%= staff_member.updated_at %></td>
         <td><%= staff_member.active_employee %></td>
+        <td><a href="/staff_members/<%= staff_member.id %>/edit/">Edit</a></td>
+        </div>
     </tr>
   <% end %>
 </table>

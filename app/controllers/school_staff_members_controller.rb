@@ -1,6 +1,7 @@
 class SchoolStaffMembersController < ApplicationController
 
   def index
+    # binding.pry
     @school_staff_members = School.find(params[:id]).alphabetical
     @school = School.find(params[:id])
   end

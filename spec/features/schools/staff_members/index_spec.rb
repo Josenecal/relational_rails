@@ -42,4 +42,14 @@ RSpec.describe "school staff member controller" do
     expect(page).to have_link(href: "/schools/")
     expect(page).to have_link(href:"/staff_members/")
   end
+
+  it "has a link to each staff_member's edit page next to their info" do
+    visit "/schools/#{@school_1.id}/staff_members/"
+    within("#table_row_0") do
+      expect(page).to have_link(href: "/staff_members/#{@support_staff_1.id}/edit/") # Parent's child index page is alphabetical
+    end
+    within("#table_row_1") do
+      expect(page).to have_link(href: "/staff_members/#{@teaching_staff_1.id}/edit/")
+    end
+  end
 end
