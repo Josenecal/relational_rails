@@ -8,4 +8,8 @@ class StaffMembersController < ApplicationController
     @staff_member = StaffMember.find(params[:id])
   end
 
+  def edit
+    @staff_member = StaffMember.find(params[:id])
+  end
+
 end
