@@ -26,7 +26,7 @@ RSpec.describe "school_staff_members#new" do
         fill_in :department, with: "Facility Maintinance"
         fill_in :pay_rate, with: "23.50"
         fill_in :pay_type, with: "salary"
-        fill_in :qualified_instructor, with: "true"
+        check :active_employee
 
         click_on "Create Staff Member"
 

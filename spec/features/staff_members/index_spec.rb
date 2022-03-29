@@ -36,4 +36,10 @@ RSpec.describe 'Staff Member Controlled Features' do
     expect(page).to have_link(href: "/schools/")
     expect(page).to have_link(href: "/staff_members/")
   end
+
+  it 'only displays records where the active_employee attribute is true' do
+    visit "/staff_members/"
+    expect(page).to have_content(@admin_staff_1.name)
+    expect(page).to_not have_content(@teaching_staff_4.name)
+  end
 end

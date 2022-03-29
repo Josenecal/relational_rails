@@ -24,6 +24,7 @@ class SchoolStaffMembersController < ApplicationController
       pay_rate: params[:pay_rate],
       pay_type: params[:pay_type],
       qualified_instructor: params[:qualified_instructor],
+      :active_employee => params[:active_employee],
       courses: "[]"
     }
   end

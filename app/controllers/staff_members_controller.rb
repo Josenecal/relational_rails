@@ -27,7 +27,8 @@ class StaffMembersController < ApplicationController
        pay_rate: params[:pay_rate],
        pay_type: params[:pay_type],
        qualified_instructor: params[:qualified_instructor],
-       courses: params[:courses]
+       courses: params[:courses],
+       :active_employee => params[:active_employee]
      }
    end
 

@@ -14,5 +14,7 @@
   <%= form.check_box :qualified_instructor %>
   <%= form.label :courses %>
   <%= form.text_field :courses, value: "#{@staff_member.courses}" %>
+  <%= form.label :active_employee %>
+  <%= form.check_box :active_employee, value:  "#{@staff_member.active_employee}" %> %>
   <%= form.submit :update_staff_member, name: "Update Staff Member" %>
 <% end %>

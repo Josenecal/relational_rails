@@ -14,6 +14,7 @@
     <th>Pay Rate</th>
     <th>Date Added</th>
     <th>Last Updated</th>
+    <th>Active Employee</th>
   </tr>
   <% @school_staff_members.each do |staff_member|%>
     <tr>
@@ -28,6 +29,7 @@
       <td><%= staff_member.pay_rate %></td>
       <td><%= staff_member.created_at %></td>
       <td><%= staff_member.updated_at %></td>
+      <td><%= staff_member.active_employee %></td>
     </tr>
   <% end %>
 </table>
