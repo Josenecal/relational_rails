@@ -1,0 +1,21 @@
+<h2>Create a New School</h2>
+
+<%= form_with url:"/schools/", method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :mailing_address  %>
+  <%= f.text_field :mailing_address %><br>
+  <%= f.label :max_student_capacity %>
+  <%= f.text_field :max_student_capacity %><br>
+  <%= f.label :state_rating %>
+  <%= f.text_field :state_rating %><br>
+  <%=f.label :is_public %>
+  <%= f.check_box :is_public %><br>
+  <%= f.label :accepting_new_students %>
+  <%= f.check_box :accepting_new_students %><br>
+  <%= f.label :calendar_structure %>
+  <%= f.text_field :calendar_structure %><br>
+  <%= f.label :grades_served %>
+  <%= f.text_field :grades_served %><br>
+  <%= f.submit "Create School", name: "Create School", action: "/schools/", method: :post %>
+<% end %>

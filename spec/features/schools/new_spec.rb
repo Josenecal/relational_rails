@@ -10,14 +10,14 @@ RSpec.describe "schools#new" do
 
         expect(current_path).to eq('/schools/new/')
 
-        fill_in "Name" with: "Test School"
-        fill_in "Mailing Address" with: "123 Academia Dr"
-        fill_in "Max Student Capacity" with: "375"
-        fill_in "State Rating" with: "Performance"
-        fill_in "Is Public" with: "true"
-        fill_in "Calendar Structure" with: "Trimesters"
-        fill_in "Grades Served" with: "k-12"
-        fill_in "Accepting New Enrollments" with: "true"
+        fill_in :name, with: "Test School"
+        fill_in :mailing_address, with: "123 Academia Dr"
+        fill_in :capacity, with: "375"
+        fill_in :rating, with: "Performance"
+        check :is_public
+        check :accepting_new_students
+        fill_in :calendar_structure, with: "Trimesters"
+        fill_in :grades_served, with: "k-12"
 
         click_on "Create School"
 
