@@ -1,7 +1,7 @@
 class StaffMembersController < ApplicationController
 
   def index
-    @staff_members = StaffMember.all
+    @staff_members = StaffMember.active
   end
 
   def show

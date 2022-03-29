@@ -8,4 +8,7 @@ class StaffMember < ApplicationRecord
   validates_presence_of:department
   validates_presence_of:courses
 
+  def self.active
+    all.where("active_employee IS true")
+  end
 end

@@ -24,7 +24,6 @@ RSpec.describe 'Staff Member Controlled Features' do
     expect(page).to have_content(@admin_staff_4.name)
     expect(page).to have_content(@admin_staff_2.role)
     expect(page).to have_content(@teaching_staff_1.name)
-    expect(page).to have_content(@teaching_staff_4.department)
     expect(page).to have_content(@support_staff_2.pay_rate)
     expect(page).to have_content(@support_staff_1.name)
     expect(page).to have_content(@admin_staff_1.pay_type)
