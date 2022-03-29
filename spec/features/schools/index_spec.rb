@@ -39,7 +39,7 @@ RSpec.describe "staff_members#index" do
   end
 
   it 'has links to schools index and staff members index pages' do
-    visit '/schools'
+    visit '/schools/'
 
     expect(page).to have_link(href: "/schools/")
     expect(page).to have_link(href: "/staff_members/")
@@ -48,5 +48,15 @@ RSpec.describe "staff_members#index" do
   it 'has a link to a new parent form page' do
     visit '/schools/'
     expect(page).to have_link(href: "/schools/new/")
+  end
+
+  it 'has a link to edit each school next to their info' do
+    visit '/schools/'
+    within('#school-0') do
+      expect(page).to have_link(href: "/schools/#{@school_1.id}/edit/")
+    end
+    within('#school-5') do
+      expect(page).to have_link(href: "/schools/#{@school_6.id}/edit/")
+    end
   end
 end

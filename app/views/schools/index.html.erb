@@ -13,7 +13,8 @@
     <th>Calendar Structure</th>
     <th>Date Added</th>
     <th>Last Updated</th>
-    <th>Link</th>
+    <th>Info</th>
+    <th>Edit</th>
   </tr>
   <% @schools.each_with_index do |school, index| %>
     <tr>
@@ -30,6 +31,7 @@
         <td><%= school.created_at %></td>
         <td><%= school.updated_at %></td>
         <td><a href="/schools/<%= school.id %>/" >Info</a></td>
+        <td><a href="/schools/<%= school.id %>/edit/">Edit</a></td>
       </div>
     </tr>
   <% end %>
