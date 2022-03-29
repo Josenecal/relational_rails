@@ -1,0 +1,21 @@
+<h2>Update <%= @school.name %></h2>
+
+<%= form_with url:"/schools/#{@school.id}", method: :patch, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: "#{@school.name}" %><br>
+  <%= f.label :mailing_address  %>
+  <%= f.text_field :mailing_address, value: "#{@school.mailing_address}" %><br>
+  <%= f.label :max_student_capacity %>
+  <%= f.text_field :max_student_capacity, value: "#{@school.max_student_capacity}" %><br>
+  <%= f.label :state_rating %>
+  <%= f.text_field :state_rating , value: "#{@school.state_rating}"%><br>
+  <%=f.label :is_public %>
+  <%= f.check_box :is_public, value: 1 %><br>
+  <%= f.label :accepting_new_students %>
+  <%= f.check_box :accepting_new_students, value: 1 %><br>
+  <%= f.label :calendar_structure %>
+  <%= f.text_field :calendar_structure, value: "#{@school.calendar_structure}" %><br>
+  <%= f.label :grades_served %>
+  <%= f.text_field :grades_served, value: "#{@school.grades_served}" %><br>
+  <%= f.submit "Update School", name: "Update School", action: "/schools/#{@school.id}", method: :patch %>
+<% end %>

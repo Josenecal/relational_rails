@@ -15,13 +15,24 @@ class SchoolsController < ApplicationController
 
   def create
     # binding.pry
-    new_school = School.create!(new_school_params)
+    new_school = School.create!(school_params)
     redirect_to "/schools/"
+  end
+
+  def edit
+    @school = School.find(params[:id])
+  end
+
+  def update
+    # binding.pry
+    school = School.find(params[:id])
+    school.update!(school_params)
+    redirect_to "/schools/#{params[:id]}/"
   end
 
   private
 
-  def new_school_params
+  def school_params
     {:name => params[:name],
      :mailing_address => params[:mailing_address],
      :max_student_capacity => params[:max_student_capacity].to_i,
