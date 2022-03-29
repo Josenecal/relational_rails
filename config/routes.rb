@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/schools/:id/edit', to: 'schools#edit'
   get '/staff_members/:id', to: 'staff_members#show'
   get '/schools/:id/staff_members', to: 'school_staff_members#index'
+  get '/schools/:id/staff_members/new', to: 'school_staff_members#new'
   post '/schools', to: 'schools#create'
+  post '/schools/:id/staff_members', to: 'school_staff_members#create'
   patch '/schools/:id', to: 'schools#update'
 
 end

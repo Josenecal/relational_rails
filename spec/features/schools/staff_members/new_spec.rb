@@ -17,19 +17,18 @@ RSpec.describe "school_staff_members#new" do
       it do
         visit "/schools/#{@school_1.id}/staff_members/"
 
-        click_link 'New Staff Member'
+        click_link 'Create Staff Member'
 
         expect(current_path).to eq("/schools/#{@school_1.id}/staff_members/new/")
 
         fill_in :name, with: "Willy, Groundskeeper"
         fill_in :role, with: "Groundskeeper"
         fill_in :department, with: "Facility Maintinance"
-        fill_in :courses, with: "[]"
         fill_in :pay_rate, with: "23.50"
         fill_in :pay_type, with: "salary"
         fill_in :qualified_instructor, with: "true"
 
-        click_on "Add Staff Member"
+        click_on "Create Staff Member"
 
         expect(current_path).to eq("/schools/#{@school_1.id}/staff_members/")
         expect(page).to have_content("Willy, Groundskeeper")
