@@ -7,6 +7,5 @@ class StaffMember < ApplicationRecord
   validates_presence_of:pay_type
   validates_presence_of:department
   validates_presence_of:courses
-  validates_presence_of:qualified_instructor
 
 end

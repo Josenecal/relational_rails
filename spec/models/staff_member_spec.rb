@@ -6,7 +6,6 @@ RSpec.describe StaffMember do
     it { should validate_presence_of :role }
     it { should validate_presence_of :pay_rate }
     it { should validate_presence_of :pay_type }
-    it { should validate_presence_of :qualified_instructor }
     it { should validate_presence_of :department }
     it { should validate_presence_of :courses }
 
