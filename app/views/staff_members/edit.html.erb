@@ -1,0 +1,16 @@
+<h2>Update <%= @staff_member.name %></h2>
+<%= form_with url: "/staff_members/#{@staff_member.id}/", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :role %>
+  <%= form.text_field :role %>
+  <%= form.label :department %>
+  <%= form.text_field :department %>
+  <%= form.label :pay_rate %>
+  <%= form.text_field :pay_rate %>
+  <%= form.label :pay_type %>
+  <%= form.text_field :pay_type %>
+  <%= form.label :qualified_instructor_true_false %>
+  <%= form.check_box :qualified_instructor %>
+  <%= form.submit :update_staff_member, name: "Update Staff Member" %>
+<% end %>
