@@ -14,7 +14,7 @@ class StaffMembersController < ApplicationController
 
   def update
     StaffMember.find(params[:id]).update(update_staff_member_params)
-    redirect_to "/staff_members/#{params[:id]}"
+    redirect_to "/staff_members/#{params[:id]}/"
   end
 
   private
@@ -29,5 +29,6 @@ class StaffMembersController < ApplicationController
        qualified_instructor: params[:qualified_instructor],
        courses: params[:courses]
      }
+   end
 
 end
