@@ -40,4 +40,9 @@ RSpec.describe "staff_members#index" do
     expect(page).to have_link(href: "/schools/")
     expect(page).to have_link(href: "/staff_members/")
   end
+
+  it 'has a link to a new parent form page' do
+    visit '/schools/'
+    expect(page).to have_link(href: "/schools/new")
+  end
 end
