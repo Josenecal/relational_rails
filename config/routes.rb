@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/schools/:id', to: 'schools#show'
   get '/schools/:id/edit', to: 'schools#edit'
   get '/staff_members/:id', to: 'staff_members#show'
+  get '/staff_members/:id/edit', to: 'staff_members#edit'
   get '/schools/:id/staff_members', to: 'school_staff_members#index'
   get '/schools/:id/staff_members/new', to: 'school_staff_members#new'
   post '/schools', to: 'schools#create'
