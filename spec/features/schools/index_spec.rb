@@ -25,12 +25,17 @@ RSpec.describe "staff_members#index" do
     expect(page).to have_content(@school_2.name)
   end
 
-  xit 'shows schools in order that they were created' do
-    
+  it 'shows schools in order that they were created' do
+    school_7 = School.create!(name: "Springfield High School", mailing_address: "102 Academic Circle, Springfield CO 80000", max_student_capacity: 600, state_rating: "Improvement", is_public: true, calendar_structure: "semester", grades_served: "9-12", created_at: "2021-12-23")
+    visit '/schools'
+    # binding.pry
+    within('#school-6') do
+      expect(page).to have_content(school_7.name)
+    end
   end
 
   it 'has links to schools index and staff members index pages' do
-    visit "/staff_members/#{@admin_staff_2.id}/"
+    visit '/schools'
 
     expect(page).to have_link(href: "/schools/")
     expect(page).to have_link(href: "/staff_members/")

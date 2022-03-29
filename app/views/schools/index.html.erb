@@ -15,19 +15,21 @@
     <th>Last Updated</th>
     <th>Link</th>
   </tr>
-  <% @schools.each do |school|%>
+  <% @schools.each_with_index do |school, index| %>
     <tr>
-      <td><%= school.id %></td>
-      <td><%= school.name %></td>
-      <td><%= school.mailing_address %></td>
-      <td><%= school.is_public %></td>
-      <td><%= school.state_rating %></td>
-      <td><%= school.grades_served %></td>
-      <td><%= school.max_student_capacity %></td>
-      <td><%= school.accepting_new_students %></td>
-      <td><%= school.calendar_structure %></td>
-      <td><%= school.created_at %></td>
-      <td><%= school.updated_at %></td>
-      <td><a href="/schools/<%= school.id %>/" >Info</a></td>
+      <div id="school-<%= index %>"">
+        <td><%= school.id %></td>
+        <td><%= school.name %></td>
+        <td><%= school.mailing_address %></td>
+        <td><%= school.is_public %></td>
+        <td><%= school.state_rating %></td>
+        <td><%= school.grades_served %></td>
+        <td><%= school.max_student_capacity %></td>
+        <td><%= school.accepting_new_students %></td>
+        <td><%= school.calendar_structure %></td>
+        <td><%= school.created_at %></td>
+        <td><%= school.updated_at %></td>
+        <td><a href="/schools/<%= school.id %>/" >Info</a></td>
+      </div>
     </tr>
   <% end %>
