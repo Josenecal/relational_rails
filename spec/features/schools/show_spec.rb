@@ -52,7 +52,7 @@ RSpec.describe 'staff_members#show' do
 
   it "has a delete link" do
     school_5 = School.create!(name: "Springfield High School", mailing_address: "102 Academic Circle, Springfield CO 80000", max_student_capacity: 600, state_rating: "Improvement", is_public: 1, calendar_structure: "semester", grades_served: "9-12", accepting_new_students:1)
-    School_6 = School.create!(name: "Launch Charter Academy", mailing_address: "102 Academic Circle, Springfield CO 80000", max_student_capacity: 350, state_rating: "Performance", is_public: 0, calendar_structure: "quarter", grades_served: "k-12", accepting_new_students:1)
+    school_6 = School.create!(name: "Launch Charter Academy", mailing_address: "102 Academic Circle, Springfield CO 80000", max_student_capacity: 350, state_rating: "Performance", is_public: 0, calendar_structure: "quarter", grades_served: "k-12", accepting_new_students:1)
 
     visit "/schools/#{school_6.id}/"
 
