@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   post '/schools/:id/staff_members', to: 'school_staff_members#create'
   patch '/schools/:id', to: 'schools#update'
   patch '/staff_members/:id', to: 'staff_members#update'
+  delete '/schools/:id/', to: 'schools#destroy'
+  delete '/staff_members/:id/', to: 'staff_members#destroy'
 
 end
