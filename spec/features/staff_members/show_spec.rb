@@ -45,9 +45,9 @@ RSpec.describe "staff_members#show" do
 
   it 'has a link to delete the staff member' do
     temp_staff_member = @school_2.staff_members.create!(name: "Bean, Mr.", role: "substitute teacher", department: "Math", courses: [], pay_rate: 1000000, pay_type: "salary", qualified_instructor: 1, active_employee: 1)
-    visit "staff_members/"
+    visit "staff_members/#{temp_staff_member.id}/"
     click_on "Delete Staff Member"
-    expect(current_path).to be("/staff_members/")
+    expect(current_path).to eq("/staff_members/")
     expect(page).not_to have_content(temp_staff_member.name)
   end
 end

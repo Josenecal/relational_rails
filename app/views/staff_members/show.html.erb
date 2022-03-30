@@ -28,3 +28,4 @@
     <td><%= @staff_member.active_employee %></td>
   </tr>
 </table>
+<%= button_to "Delete Staff Member", "/staff_members/#{@staff_member.id}/", method: :delete %>

@@ -17,6 +17,12 @@ class StaffMembersController < ApplicationController
     redirect_to "/staff_members/#{params[:id]}/"
   end
 
+  def destroy
+    former_staff_member = StaffMember.find(params[:id])
+    former_staff_member.destroy
+    redirect_to "/staff_members/"
+  end
+
   private
 
    def update_staff_member_params
