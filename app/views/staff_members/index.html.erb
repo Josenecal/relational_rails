@@ -15,6 +15,7 @@
     <th>Last Updated</th>
     <th>Active Employee</th>
     <th>Edit</th>
+    <th>Delete</th>
   </tr>
   <% @staff_members.each_with_index do |staff_member, index|%>
     <tr>
@@ -32,6 +33,7 @@
         <td><%= staff_member.updated_at %></td>
         <td><%= staff_member.active_employee %></td>
         <td><a href="/staff_members/<%= staff_member.id %>/edit/">Edit</a></td>
+        <td><%= button_to "Delete: #{staff_member.name}", "/staff_members/#{staff_member.id}/", method: :delete, name: "Delete #{staff_member.name}" %>
         </div>
     </tr>
   <% end %>

@@ -50,4 +50,12 @@ RSpec.describe 'Staff Member Controlled Features' do
       expect(page).to have_link(href: "/staff_members/#{@teaching_staff_2.id}/edit/")
     end
   end
+
+  it "has a delete button next to every school" do
+    temp_staff_member = @school_2.staff_members.create!(name: "Bean, Mr.", role: "substitute teacher", department: "Math", courses: [], pay_rate: 1000000, pay_type: "salary", qualified_instructor: 1, active_employee: 1)
+    visit "/staff_members/"
+    click_on "Delete: #{temp_staff_member.name}"
+    expect(current_path).to eq("/staff_members/")
+    expect(page).not_to have_content(temp_staff_member.name)
+  end
 end
