@@ -1,3 +1,5 @@
+<nav><p>Go To: <a href='/schools/'>Schools Index</a>  |  <a href='/staff_members/'>Staff Members Index</a> </p></nav>
+
 <h2>Update <%= @staff_member.name %></h2>
 <%= form_with url: "/staff_members/#{@staff_member.id}/", method: :patch, local: true do |form| %>
   <%= form.label :name %>

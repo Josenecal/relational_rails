@@ -17,3 +17,12 @@ td {
   text-align: center;
   border: solid black;
 }
+nav {
+  background-color: #AA2211;
+  color: white;
+  border: solid black;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
