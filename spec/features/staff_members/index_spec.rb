@@ -51,7 +51,7 @@ RSpec.describe 'Staff Member Controlled Features' do
     end
   end
 
-  it "has a delete button next to every school" do
+  it "has a delete button next to every staff member" do
     temp_staff_member = @school_2.staff_members.create!(name: "Bean, Mr.", role: "substitute teacher", department: "Math", courses: [], pay_rate: 1000000, pay_type: "salary", qualified_instructor: 1, active_employee: 1)
     visit "/staff_members/"
     click_on "Delete: #{temp_staff_member.name}"

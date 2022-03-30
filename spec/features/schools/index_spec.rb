@@ -59,4 +59,12 @@ RSpec.describe "staff_members#index" do
       expect(page).to have_link(href: "/schools/#{@school_6.id}/edit/")
     end
   end
+
+  it 'has a button to delete next to every school entry' do
+    school = School.create!(name: "Burlington High School", mailing_address: "67 Cherry St, Burlington VT, 05401", max_student_capacity: 1000, state_rating: "Turn Around", is_public: 1, calendar_structure: "semester", grades_served: "9-12", accepting_new_students:1)
+    visit '/schools/'
+    click_on "Delete Burlington High School"
+    expect(current_path).to eq("/schools/")
+    expect(page).not_to have_content(school.mailing_address)
+  end
 end
