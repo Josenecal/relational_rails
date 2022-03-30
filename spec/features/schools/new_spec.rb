@@ -6,7 +6,7 @@ RSpec.describe "schools#new" do
       it do
         visit '/schools/'
 
-        click_link 'New School'
+        click_button :new_school
 
         expect(current_path).to eq('/schools/new/')
 

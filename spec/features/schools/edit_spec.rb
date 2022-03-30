@@ -9,7 +9,7 @@ RSpec.describe 'schools#edit' do
   it "links from 'update school' on school show page to form to update attributes" do
     visit "/schools/#{@school_1.id}/"
 
-    click_link "Update School"
+    click_on "Update School"
 
     expect(current_path).to eq("/schools/#{@school_1.id}/edit/")
 

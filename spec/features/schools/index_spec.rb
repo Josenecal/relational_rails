@@ -47,7 +47,7 @@ RSpec.describe "staff_members#index" do
 
   it 'has a link to a new parent form page' do
     visit '/schools/'
-    expect(page).to have_link(href: "/schools/new/")
+    expect(page).to have_button(:new_school)
   end
 
   it 'has a link to edit each school next to their info' do
