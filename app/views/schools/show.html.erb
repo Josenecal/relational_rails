@@ -1,4 +1,4 @@
-<p>Go To: <a href='/schools/'>Schools Index</a>  |  <a href='/staff_members/'>Staff Members Index</a>  |  <a href='/schools/<%= @school.id %>/staff_members/'><%= @school.name %>'s Staff Members'</a></p>
+<p>Go To: <a href='/schools/'>Schools Index</a>  |  <a href='/staff_members/'>Staff Members Index</a>  |  <a href='/schools/<%= @school.id %>/staff_members/'><%= @school.name %>'s Staff Members'</a>  |  </p>
 <h2><%= @school.name %></h2>
 <ul>
   <li>ID: <%= @school.id %></li>
@@ -14,7 +14,7 @@
   <li>Date Updated: <%= @school.updated_at %></li>
 </ul>
 
-<a href="/schools/<%= @school.id %>/edit/">Update School</a>
+<p><a href="/schools/<%= @school.id %>/edit/"">Update School</a>  |  <%= button_to "Delete School", "/schools/#{@school.id}/", method: :delete %></p>
 <!-- <table>
   <tr>
     <th>School ID</th>
