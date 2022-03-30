@@ -37,5 +37,14 @@ RSpec.describe StaffMember do
     filtered = StaffMember.active
     expect(filtered.find_index(@teaching_staff_4)).to eq(nil)
     end
+
+    it 'should filter results to only employees earning more than the specified minimum salary' do
+      all_staff = @school_2.staff_members
+      filtered = all_staff.by_salary(39000)
+
+      expect(filtered.length).to eq(2)
+      expect(filtered.first).to eq(@admin_staff_3)
+      expect(filtered.last).to eq(@admin_staff_4)
+    end
   end
 end

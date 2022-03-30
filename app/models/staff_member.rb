@@ -11,4 +11,8 @@ class StaffMember < ApplicationRecord
   def self.active
     all.where("active_employee IS true")
   end
+
+  def self.by_salary(min)
+    where("pay_rate >= #{min}")
+  end
 end

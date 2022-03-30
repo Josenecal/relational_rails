@@ -52,4 +52,15 @@ RSpec.describe "school staff member controller" do
       expect(page).to have_link(href: "/staff_members/#{@teaching_staff_1.id}/edit/")
     end
   end
+
+  it "has a form to limit results to only staff members with more than X pay_rate" do
+    visit "/schools/#{@school_2.id}/staff_members/"
+    fill_in :limit_by_pay, with: "36000"
+    click_on "Filter Results"
+    expect(current_path).to eq("/schools/#{@school_2.id}/staff_members/")
+    expect(page).to have_content(@teaching_staff_4.name)
+    expect(page).to have_content(@admin_staff_3.name)
+    expect(page).to have_content(@admin_staff_4.name)
+    expect(page).not_to have_content(@teaching_staff_5.name)
+  end
 end

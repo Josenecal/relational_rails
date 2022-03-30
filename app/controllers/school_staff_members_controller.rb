@@ -2,7 +2,12 @@ class SchoolStaffMembersController < ApplicationController
 
   def index
     # binding.pry
-    @school_staff_members = School.find(params[:id]).alphabetical
+    if params[:limit_by_pay]
+      all_school_staff = School.find(params[:id]).alphabetical
+      @school_staff_members = all_school_staff.by_salary(params[:limit_by_pay])
+    else
+      @school_staff_members = School.find(params[:id]).alphabetical
+    end
     @school = School.find(params[:id])
   end
 

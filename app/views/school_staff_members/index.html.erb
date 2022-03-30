@@ -37,3 +37,8 @@
     </tr>
   <% end %>
 </table>
+<%= form_with url: "/schools/#{@school.id}/staff_members/?limit=by_salary", method: :get, local: true do |form| %>
+  <%= form.label "Minimum Pay Rate:" %>
+  <%= form.text_field :limit_by_pay %>
+  <%= form.submit "Filter Results" %>
+<% end %>
